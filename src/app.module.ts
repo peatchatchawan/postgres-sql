@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './users/entities/user.entity';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
+import { HospitalModule } from './hospital/hospital.module';
+import { Hospital } from './hospital/entities/hospital.entity';
 
 @Module({
   imports: [
@@ -15,9 +15,9 @@ import { UsersModule } from './users/users.module';
       password: '121243',
       database: 'postgres',
       synchronize: true,
-      entities: [User],
+      entities: [Hospital],
     }),
-    UsersModule,
+    HospitalModule,
   ],
   controllers: [AppController],
   providers: [AppService],
